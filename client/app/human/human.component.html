@@ -1,0 +1,25 @@
+<div class="container">
+    {{name}}<br/>
+    <hr/>
+    <h4>Enter name:</h4>
+    <input type="text" name="name" [(ngModel)]="name" />
+    <h4>Enter age:</h4>
+    <input type="number" name="age" [(ngModel)]="age" />
+    <br/>
+    <br/>
+    <button (click)="addHuman()">Add</button>
+</div>
+<br/><br/>
+<div class="humans">
+    <li *ngFor="let human of humans">
+        {{human.name}} {{ human.age}}
+        <button (click)="removeHuman(human._id)">X</button>
+        <button (click)="viewHuman(human._id)">View</button>
+    </li>
+</div>
+<br/><br/>
+<div class="details" *ngIf="viewedHuman">
+    Name: {{ viewedHuman.name }}
+    <br/>
+    Age: {{ viewedHuman.age }}
+</div>
